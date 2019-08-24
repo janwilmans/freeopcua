@@ -1,15 +1,23 @@
 Open Source C++ OPC-UA Server and Client Library
 ========
-[![Build Status](https://travis-ci.org/FreeOpcUa/freeopcua.svg?branch=master)](https://travis-ci.org/FreeOpcUa/freeopcua)
-
 LGPL OPC-UA server and client library written in C++ and with a lot of code auto-generated from xml specification using python.  
+
+## Quick start guide:
+
+- `sudo apt install autotools-dev autoconf libtool libxml2-dev`
+- `git clone https://github.com/FreeOpcUa/freeopcua`
+- `./autogen.sh`
+- `./configure --prefix /opt/free-opcua`
+- `make`
+- `make --install`
+
+
 
 Python bindings can be found in the python directory.
 
 code: https://github.com/FreeOpcUa/freeopcua  
 website: http://freeopcua.github.io/  
 mailing list: https://groups.google.com/forum/#!forum/freeopcua  
-
 
 Currently supported:
 * read, write, browse
