@@ -1,3 +1,3 @@
-#!/bin/sh
-./autogen.sh && ./configure && make
-
+./autogen.sh
+./configure --disable-python-bindings --prefix /opt/free-opcua
+make
