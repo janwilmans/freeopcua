@@ -10,6 +10,9 @@ LGPL OPC-UA server and client library written in C++ and with a lot of code auto
 - `./configure --disable-python-bindings --prefix /opt/freeopcua`
 - `make`
 - `sudo make install`
+- `sudo cp -r include/opc/spdlog /opt/freeopcua/include/opc/`
+
+ofcourse that last step is completely weird, but its seems to be an oversight in the make install script.
 
 To create a release build: edit `configure.ac` to set the CXX_FLAGS to include -O2
 
