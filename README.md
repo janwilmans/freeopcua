@@ -7,9 +7,9 @@ LGPL OPC-UA server and client library written in C++ and with a lot of code auto
 - `sudo apt install autotools-dev autoconf libtool libxml2-dev python-dev`
 - `git clone https://github.com/FreeOpcUa/freeopcua`
 - `./autogen.sh`
-- `./configure --prefix /opt/free-opcua`
+- `./configure --disable-python-bindings --prefix /opt/freeopcua`
 - `make`
-- `make --install`
+- `sudo make install`
 
 To create a release build: edit `configure.ac` to set the CXX_FLAGS to include -O2
 
