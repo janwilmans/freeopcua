@@ -11,7 +11,7 @@ AC_CONFIG_AUX_DIR([.])
 AC_CONFIG_SRCDIR([src/serverapp/server_main.cpp])
 AM_INIT_AUTOMAKE([-Wall -Werror foreign])
 
-CXXFLAGS="-O0 -g -std=c++11"
+CXXFLAGS="-O2 -g -std=c++14"
 
 AC_PROG_CXX
 m4_ifdef([AM_PROG_AR],[AM_PROG_AR])

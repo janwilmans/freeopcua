@@ -351,6 +351,7 @@ common_HEADERS = \
                   include/opc/common/exception.h \
                   include/opc/common/interface.h \
                   include/opc/common/modules.h \
+                  include/opc/common/logger.h \
                   include/opc/common/thread.h \
                   include/opc/common/uri_facade.h
 
