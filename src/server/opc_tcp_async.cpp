@@ -21,17 +21,19 @@
 
 #include <opc/ua/server/opc_tcp_async.h>
 
-#include <opc/ua/protocol/utils.h>
 #include <opc/ua/protocol/binary/common.h>
 #include <opc/ua/protocol/binary/stream.h>
 #include <opc/ua/protocol/channel.h>
-#include <opc/ua/protocol/secure_channel.h>
 #include <opc/ua/protocol/input_from_buffer.h>
+#include <opc/ua/protocol/secure_channel.h>
+#include <opc/ua/protocol/utils.h>
 
 #include <array>
 #include <boost/asio.hpp>
+#include <boost/interprocess/allocators/allocator.hpp>
 #include <future>
 #include <iostream>
+#include <memory>
 #include <set>
 
 
@@ -106,7 +108,9 @@ public:
      */
     typedef std::promise<void> Promise;
     Promise promise;
-    Socket.get_io_service().post(bind(&Promise::set_value, &promise));
+
+    std::allocator<int> all;
+    Socket.get_executor().post([&]{ promise.set_value(); }, all);
     promise.get_future().wait();
   }
 
@@ -372,7 +376,9 @@ void OpcTcpServer::Shutdown()
    */
   typedef std::promise<void> Promise;
   Promise promise;
-  acceptor.get_io_service().post(bind(&Promise::set_value, &promise));
+
+  std::allocator<int> all;
+  acceptor.get_executor().post([&]{ promise.set_value(); }, all);
   promise.get_future().wait();
 }
 
